@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 
     <style>
-        @import "compass/css3";
 
         @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 
@@ -95,16 +94,17 @@
                 animation: closeLeft 2s ease-in-out forwards;
             }
 
-
-        #card:hover {
-            #myheart1 {
+            #myheart1.openLeft {
+                -webkit-transform: rotateY(0deg);
+                -moz-transform: rotateY(0deg);
+                -ms-transform: rotateY(0deg);
+                transform: rotateY(0deg);
                 -webkit-animation: openLeft 2s ease-in-out forwards;
                 -moz-animation: openLeft 2s ease-in-out forwards;
-                -ms-animation: openLeft 2 ease-in-out forwards;
+                -ms-animation: openLeft 2s ease-in-out forwards;
                 animation: openLeft 2s ease-in-out forwards;
             }
 
-        }
 
         @-webkit-keyframes closeLeft {
             from {
@@ -328,31 +328,44 @@
         </div>
 
         <div id="message">
-                        <h2>You're the one I love<br>
-                            You're the most beautiful<br>
-                            person in my life<br>
-                            You're so precious to me<br>
-                            You bring happiness into my life<br><br>
-                            Please stay with me as long as you want to<br><br>
-                            I love you, Avéline 🤍
-                        </h2>
+            <h2>You're the one I love<br>
+                You're the most beautiful<br>
+                person in my life<br>
+                You're so precious to me<br>
+                You bring happiness into my life<br><br>
+                Please stay with me as long as you want to<br><br>
+                I love you, Avéline 🤍
+            </h2>
         </div>
 
     </div>
-
-
 
     <div class="button-container" style="display: none;">
         <button onclick="location.href='flowerforyou.html';">🌼</button>
     </div>
 
     <script>
-        // Wait for 4 seconds before showing the button
-        setTimeout(function() {
-          document.querySelector('.button-container').style.display = 'block';
-        }, 4000);
-    </script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // ดึงอินสแตนซ์ของ #card จาก DOM
+            const card = document.getElementById('card');
 
+            // เพิ่ม event listener เมื่อคลิก
+            card.addEventListener('click', function() {
+                // เพิ่มคลาสเพื่อให้เริ่มเล่น animation
+                document.getElementById('myheart1').classList.add('openLeft');
+
+                // หลังจากเล่นเสร็จสิ้นแล้วให้ลบคลาสเพื่อเตรียมสำหรับการเล่นครั้งถัดไป
+                setTimeout(() => {
+                    document.getElementById('myheart1').classList.remove('openLeft');
+                }, 7000); // ให้เล่นเป็นเวลา 2 วินาที
+            });
+
+            // แสดงปุ่มหลังจากผ่านไป 4 วินาที
+            setTimeout(function() {
+                document.querySelector('.button-container').style.display = 'block';
+            }, 4000);
+        });
+    </script>
 
 </body>
 
