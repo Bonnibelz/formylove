@@ -21,21 +21,20 @@
         }
 
         h1 {
+            font-size: 30px;
             color: #fff;
             margin-bottom: 45px;
         }
 
         h2 {
-            font-size: 12px;
+            font-size: 10px;
             color: #fff;
             width: 170px;
             margin-top: 45px;
-            margin-left: 12px;
+            margin-left: 10px;
         }
 
         #card {
-
-
 
             filter: drop-shadow(0 -10px 25px rgba(0, 0, 0, .3));
 
@@ -269,9 +268,6 @@
 
         }
 
-
-
-
         .button-container {
             position: fixed;
             bottom: 0;
@@ -308,6 +304,12 @@
             position: relative;
             z-index: 1;
             /* ตั้งค่า z-index เพื่อให้ปุ่มมีลำดับความสูงที่เหนือกว่า */
+        }
+
+        @media only screen and (min-width: 900px) and (min-height: 900px) {
+            #card {
+                transform: scale(1.5);
+            }
         }
     </style>
 </head>
@@ -359,7 +361,7 @@
                 // หลังจากเล่นเสร็จสิ้นแล้วให้ลบคลาสเพื่อเตรียมสำหรับการเล่นครั้งถัดไป
                 setTimeout(() => {
                     document.getElementById('myheart1').classList.remove('openLeft');
-                }, 7000); // ให้เล่นเป็นเวลา 2 วินาที
+                }, 20000); // ให้เล่นเป็นเวลา 20 วินาที
             });
 
             // แสดงปุ่มหลังจากผ่านไป 4 วินาที
